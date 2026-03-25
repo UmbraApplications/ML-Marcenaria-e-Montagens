@@ -183,5 +183,14 @@ async function baixar() {
     doc.text(`TOTAL: R$ ${total.toFixed(2)}`, 10, y);
 
     // DOWNLOAD
-    doc.save("orcamento.pdf");
-}
+// GERAR NOME DO ARQUIVO COM CLIENTE
+const nomeCliente = cliente || "Cliente";
+
+// remove caracteres inválidos
+const nomeLimpo = nomeCliente.replace(/[^a-zA-Z0-9 ]/g, "");
+
+// nome final
+const nomeArquivo = `Orcamento ${nomeLimpo}.pdf`;
+
+// DOWNLOAD
+doc.save(nomeArquivo);}
